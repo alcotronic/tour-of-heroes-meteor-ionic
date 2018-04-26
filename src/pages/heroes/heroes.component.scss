@@ -1,0 +1,20 @@
+/* HeroesComponent's private CSS styles */
+app-heroes {
+
+  .card {
+    color: #888;
+    background-color: #EEE;
+  }
+
+  .card:hover {
+    color: #607D8B;
+    background-color: #DDD;
+
+  }
+
+  .col-id {
+    color: #fff;
+    background-color: #607D8B;
+  }
+
+}

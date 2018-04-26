@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="dark-grey" (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Hero details</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <div *ngIf="hero">
+    <h2>{{ hero.name | uppercase }}</h2>
+    <div><span>id: </span>{{hero._id}}</div>
+    <div>
+
+      <ion-label color="dark-grey">Name</ion-label>
+      <ion-input [(ngModel)]="hero.name" placeholder="Name"></ion-input>
+
+    </div>
+    <button ion-button color="dark-grey" (click)="save()">Save</button>
+  </div>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="dark-grey" menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Dashboard</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="dark-grey" (click)="goToHeroSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <h3>Top Heroes</h3>
+  <ion-card *ngFor="let hero of heroes" (click)="goToHeroDetails(hero)">
+    <ion-card-header>
+      {{hero.name}}
+    </ion-card-header>
+  </ion-card>
+</ion-content>

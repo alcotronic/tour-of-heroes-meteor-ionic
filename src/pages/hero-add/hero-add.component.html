@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="dark-grey" (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Hero Add</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <h4>New hero</h4>
+
+  <ion-input #heroName id="search-box" type="text" placeholder="Hero name"></ion-input>
+  <button ion-button color="dark-grey" (click)="add(heroName.value); heroName.value=''">
+    Add
+  </button>
+
+</ion-content>

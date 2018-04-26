@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="dark-grey" (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Hero search</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <h4>Hero Search</h4>
+
+  <ion-input #searchBox id="search-box" (keyup)="search(searchBox.value)" type="text" placeholder="Search"></ion-input>
+
+  <ion-card *ngFor="let hero of heroes$ | async" (click)="goToHeroDetails(hero)">
+    <ion-card-header>
+      {{hero.name}}
+    </ion-card-header>
+  </ion-card>
+
+</ion-content>

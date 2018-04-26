@@ -1,0 +1,19 @@
+/* HeroSearch private styles */
+app-hero-search {
+
+  .card {
+    background-color: #607d8b;
+    text-align: center;
+    .card-header {
+      color: #eee;
+    }
+  }
+
+  .card:hover {
+    background-color: #eee;
+    .card-header {
+      color: #607d8b;
+    }
+  }
+
+}

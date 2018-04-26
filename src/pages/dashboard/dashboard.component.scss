@@ -1,0 +1,20 @@
+/* DashboardComponent's private CSS styles */
+
+app-dashboard {
+
+  .card {
+    background-color: #607d8b;
+    text-align: center;
+    .card-header {
+      color: #eee;
+    }
+  }
+
+  .card:hover {
+    background-color: #eee;
+    .card-header {
+      color: #607d8b;
+    }
+  }
+
+}

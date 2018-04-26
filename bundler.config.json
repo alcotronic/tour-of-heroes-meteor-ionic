@@ -1,0 +1,7 @@
+{
+  "runtime": {
+    "DDP_DEFAULT_CONNECTION_URL": "http://alcotower.local:3000"
+  },
+  "import": [],
+  "npmPackages": []
+}
