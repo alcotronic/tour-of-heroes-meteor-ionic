@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import { Meteor } from 'meteor/meteor';
-
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
@@ -16,7 +14,7 @@ export class HeroService {
 
   private heroes: ObservableCursor<Hero>;
 
-  constructor(private messageService: MessageService) {
+  constructor(public messageService: MessageService) {
     MeteorObservable.subscribe('heroList').subscribe(()=> {
       MeteorObservable.autorun().subscribe(() => {
         this.heroes = Heroes.find({});
@@ -30,7 +28,7 @@ export class HeroService {
     return this.heroes;
   }
 
-  /** GET hero by id. Will 404 if id not found */
+  /** GET hero by id */
   getHero(id: string): Observable<Hero> {
     return of(Heroes.findOne({_id: id}));
   }
@@ -53,58 +51,42 @@ export class HeroService {
 
   }
 
-  //////// Save methods //////////
-
-  /** POST: add a new hero to the server */
+  /** add a new hero to the server */
   addHero (hero: Hero): void {
-    Meteor.call('addHero', hero, function(error) {
-      if(error && error.error === "hero-add-error") {
-        console.log(error.message);
+    MeteorObservable.call('addHero', hero).subscribe({
+      next: () => {
+        this.messageService.show('Hero was added.');
+      },
+      error: (error: Error) => {
+        this.messageService.show('Hero was not added.');
       }
     });
   }
 
-  /** DELETE: delete the hero from the server */
+  /** delete the hero from the server */
   deleteHero (hero: Hero | string): void {
     const id = typeof hero === 'string' ? hero : hero._id;
-    Meteor.call('removeHero', id, function(error) {
-      if(error && error.error === "hero-not-exists") {
-        console.log(error.message);
+
+    MeteorObservable.call('removeHero', id).subscribe({
+      next: () => {
+        this.messageService.show('Hero was removed.');
+      },
+      error: (error: Error) => {
+        this.messageService.show('Hero was not removed.');
       }
     });
   }
 
-  /** PUT: update the hero on the server */
+  /** update the hero on the server */
   updateHero (hero: Hero): void {
-    Meteor.call('updateHero', hero, function(error) {
-      if(error && error.error === "hero-not-exists") {
-        console.log(error.message);
+    MeteorObservable.call('updateHero', hero).subscribe({
+      next: () => {
+        this.messageService.show('Hero was updated.');
+      },
+      error: (error: Error) => {
+        this.messageService.show('Hero was not updated.');
       }
     });
   }
 
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
-      // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
-
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
-  }
-
-  /** Log a HeroService message with the MessageService */
-  private log(message: string) {
-    this.messageService.add('HeroService: ' + message);
-  }
 }

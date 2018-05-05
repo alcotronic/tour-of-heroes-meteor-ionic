@@ -11,7 +11,9 @@
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "meteor-client:bundle": "meteor-client bundle -s src/api --config bundler.config.json"
+    "ionic:serve:lab": "ionic-app-scripts serve --lab",
+    "meteor-client:bundle": "meteor-client bundle -s src/api --config bundler.config.json",
+    "meteor": "cd src/api && meteor run --settings private/settings.json"
   },
   "dependencies": {
     "@angular/animations": "5.2.10",

@@ -1,14 +1,22 @@
 import { Injectable } from '@angular/core';
+import { ToastController } from 'ionic-angular';
 
 @Injectable()
 export class MessageService {
-  messages: string[] = [];
 
-  add(message: string) {
-    this.messages.push(message);
-  }
+  constructor(public toastController: ToastController) {}
 
-  clear() {
-    this.messages = [];
+  show(message: string) {
+    let toast = this.toastController.create({
+      message: message,
+      duration: 2000,
+      position: 'bottom'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
   }
 }

@@ -36,11 +36,11 @@ You need to start both, ionic serve for the app and meteor for the api.
 In one terminal in the project folder start the app with:
 
 ```
-ionic serve --l
+npm ionic:serve:lab
 ```
 
-In one terminal in the src/api folder start meteor with:
+In a second terminal in the project folder start meteor with:
 
 ```
-meteor run
+npm meteor
 ```
