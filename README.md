@@ -12,6 +12,7 @@ ionic - https://ionicframework.com
 
 meteor and ionic tutorial - https://steemit.com/utopian-io/@jaysermendez/setting-up-ionic-3-with-meteorjs-backend
 
+
 ## Usage
 
 ### Install dependencies
@@ -20,14 +21,23 @@ meteor and ionic tutorial - https://steemit.com/utopian-io/@jaysermendez/setting
 npm install
 ```
 
+Install ionic: https://ionicframework.com/getting-started
+
+Install ionic: https://www.meteor.com/install
+
+Install meteor-client bundler: https://www.npmjs.com/package/meteor-client-bundler
+
+
 ### Configuration
 
 Set the "DDP_DEFAULT_CONNECTION_URL" variable in bundler.config.json to your needs - mostly for local testing the ip/hostname of your machine.
+
 
 ### Create client bundle
 ```
 npm run meteor-client:bundle
 ```
+
 
 ### Run
 
