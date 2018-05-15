@@ -42,7 +42,7 @@ export class HeroService {
     } else {
       console.log("search term: "+term);
       return Observable.create(observer => {
-        MeteorObservable.subscribe('heroListSearch', term).zone().subscribe(()=> {
+        MeteorObservable.subscribe('heroListSearch', term).subscribe(()=> {
           observer.next(Heroes.find({"name": term}).fetch());
           observer.complete();
         });
