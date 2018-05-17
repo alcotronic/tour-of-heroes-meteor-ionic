@@ -6,7 +6,7 @@ import { Subject }    from 'rxjs/Subject';
 
 import { debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 
-import { Hero } from '../../api/models/hero';
+import { Hero } from '../../../api/models/hero';
 import { HeroService } from '../../providers/hero/hero.service';
 import { HeroDetailComponent }  from '../hero-detail/hero-detail.component';
 

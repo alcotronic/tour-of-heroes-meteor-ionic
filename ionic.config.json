@@ -1,6 +1,6 @@
 {
   "name": "tour-of-heroes-meteor-ionic",
-  "app_id": "",
+  "app_id": "ba282564",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

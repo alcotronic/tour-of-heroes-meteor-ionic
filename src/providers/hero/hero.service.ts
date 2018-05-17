@@ -5,8 +5,8 @@ import { of } from 'rxjs/observable/of';
 
 import { MeteorObservable, ObservableCursor } from 'meteor-rxjs';
 
-import { Hero } from '../../api/models/hero';
-import { Heroes } from '../../api/collections/heroes';
+import { Hero } from '../../../api/models/hero';
+import { Heroes } from '../../../api/collections/heroes';
 import { MessageService } from '../message/message.service';
 
 @Injectable()

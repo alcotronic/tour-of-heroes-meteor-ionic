@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { Hero } from '../../api/models/hero';
+import { Hero } from '../../../api/models/hero';
 import { HeroService } from '../../providers/hero/hero.service';
 
 @Component({
